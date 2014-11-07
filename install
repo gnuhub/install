@@ -4,7 +4,7 @@
 # change the value of HOMEBREW_PREFIX.
 HOMEBREW_PREFIX = '/usr/local'
 HOMEBREW_CACHE = '/Library/Caches/Homebrew'
-HOMEBREW_REPO = '/Users/stallman/gnuhubdata/git/homebrew'
+HOMEBREW_REPO = '/Users/stallman/gnuhubdata/git/homebrew/.git'
 
 module Tty extend self
   def blue; bold 34; end

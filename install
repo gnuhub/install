@@ -3,11 +3,11 @@
 # untar https://github.com/Homebrew/homebrew/tarball/master anywhere you like or
 # change the value of HOMEBREW_PREFIX.
 HOMEBREW_PREFIX = '/usr/local'
-HOMEBREW_CACHE = '/Library/Caches/Homebrew'
+HOMEBREW_CACHE = Dir.home + "/gnuhubdata/homebrew_cache"
 if Dir.exist?(Dir.home + ("/gnuhubdata/git/homebrew/.git"))
-  HOMEBREW_REPO = '/Users/stallman/gnuhubdata/git/homebrew/.git'
+  HOMEBREW_REPO = Dir.home + "/gnuhubdata/git/homebrew/.git"
 else
-  HOMEBREW_REPO = 'https://github.com/gnuhub/homebrew'
+  HOMEBREW_REPO = 'https://github.com/Homebrew/homebrew.git'
 end
 
 module Tty extend self
@@ -212,3 +212,5 @@ end
 
 puts "Run `brew doctor` #{Tty.white}before#{Tty.reset} you install anything"
 puts "Run `brew help` to get started"
+puts "git remote set-url origin https://github.com/Homebrew/homebrew.git"
+p %x{cd /usr/local; git remote set-url origin https://github.com/Homebrew/homebrew.git ; git remote -v}
